@@ -15,7 +15,7 @@ class GameEngine {
         this.click = null;
         this.mouse = null;
         this.wheel = null;
-        this.keys = {};
+        this.keys = {}; //tell it what keys I'm looking for?
 
         // THE KILL SWITCH
         this.running = false;
@@ -87,7 +87,9 @@ class GameEngine {
             this.rightclick = getXandY(e);
         });
 
-        window.addEventListener("keydown", event => this.keys[event.key] = true);
+        //this.ctx.canvas.addEventListener("keydown", function (e))
+
+        window.addEventListener("keydown", event => this.keys[event.key] = true); //keyCode or code loop for? on key down that.B = true; on key up that.B = false/
         window.addEventListener("keyup", event => this.keys[event.key] = false);
     };
 
