@@ -21,6 +21,32 @@ class Tashigi {
     };
 
     update() {
+
+        //DYNAMIC MOVEMENT / ANIMATIONS
+        // if(this.game.left){ //this appear to be working!
+        //     this.x -= this.speed*this.game.clockTick;
+        //     console.log("I have been told to go left!"); //add animations?
+        // };
+
+        // if(this.game.right){
+        //     this.x += this.speed*this.game.clockTick;
+        //     console.log("I have been told to go right!");
+        // };
+
+        // if(this.game.up){
+        //     this.y -= this.speed*this.game.clockTick;
+        //     console.log("I have been told to go up!");
+        // };
+
+        // if(this.game.down){
+        //     this.y += this.speed*this.game.clockTick;
+        //     console.log("I have been told to go down!");
+        // };
+
+        //if(this.game.ac)
+        //if(this.game.keys['a'])
+
+        //STRICTLY for ANIMATION SHOWCASE
         if(this.aniNumb == 1 && this.dirNumb == 0){
             this.x -= this.speed*this.game.clockTick;
             if(this.x < -58){
@@ -48,6 +74,8 @@ class Tashigi {
          } else {
             //else do nothing, stand in same place (? continue; breaks code for some reason.)
         };
+
+        //STRICTLY FOR ANIMATION SHOWCASE //action 5 should also have special animation boost... attach it to one time press key j or whatever
     };
 
     draw(ctx) {
@@ -70,40 +98,40 @@ class Tashigi {
         };
 
         //idle left
-        this.animations[0][0] = new Animator(ASSET_MANAGER.getAsset("./Tashigi-idle.png"), 0, 0, 44, 70, 3, .5, false);
+        this.animations[0][0] = new Animator(ASSET_MANAGER.getAsset("./docs/Tashigi-idle.png"), 0, 0, 44, 70, 3, .5, false);
         //idle right
-        this.animations[0][1] = new Animator(ASSET_MANAGER.getAsset("./Tashigi-idle.png"), 0, 0, 44, 70, 3, .5, true);
+        this.animations[0][1] = new Animator(ASSET_MANAGER.getAsset("./docs/Tashigi-idle.png"), 0, 0, 44, 70, 3, .5, true);
 
         // put new animator for each state / orientation into each array in correct place.
         //tashigi walk left
-        this.animations[1][0] = new Animator(ASSET_MANAGER.getAsset("./Tashigi-walking.png"), 0, 0, 48, 58, 6, 0.2, false); //if this.x < -58 -> this.x = 1050 += speed 75?
+        this.animations[1][0] = new Animator(ASSET_MANAGER.getAsset("./docs/Tashigi-walking.png"), 0, 0, 48, 58, 6, 0.2, false); //if this.x < -58 -> this.x = 1050 += speed 75?
         //tashigi walk right
-        this.animations[1][1] =  new Animator(ASSET_MANAGER.getAsset("./Tashigi-walking-right.png"), 10, 0, 48, 58, 6, 0.2, false); //if this.x > 1050 -> this.x = -58 -=
+        this.animations[1][1] =  new Animator(ASSET_MANAGER.getAsset("./docs/Tashigi-walking-right.png"), 10, 0, 48, 58, 6, 0.2, false); //if this.x > 1050 -> this.x = -58 -=
 
         //horizontal slash left
-        this.animations[2][0] = new Animator(ASSET_MANAGER.getAsset("./Tashigi-hori-slash.png"), 10, 0, 88, 58, 5, 0.2, false);
+        this.animations[2][0] = new Animator(ASSET_MANAGER.getAsset("./docs/Tashigi-hori-slash.png"), 10, 0, 88, 58, 5, 0.2, false);
         //horizontal slash right
-        this.animations[2][1] = new Animator(ASSET_MANAGER.getAsset("./Tashigi-hori-slash-right.png"), 24, 0, 88, 58, 5, 0.2, false);
+        this.animations[2][1] = new Animator(ASSET_MANAGER.getAsset("./docs/Tashigi-hori-slash-right.png"), 24, 0, 88, 58, 5, 0.2, false);
 
         //vertical slash left
-        this.animations[3][0] = new Animator(ASSET_MANAGER.getAsset("./Tashigi-vertical.png"), 0, 0, 94, 70, 5, .1, false);
+        this.animations[3][0] = new Animator(ASSET_MANAGER.getAsset("./docs/Tashigi-vertical.png"), 0, 0, 94, 70, 5, .1, false);
         //vertical slash right
-        this.animations[3][1] = new Animator(ASSET_MANAGER.getAsset("./Tashigi-vertical-right.png"), 18, 0, 94, 70, 5, .1, false);
+        this.animations[3][1] = new Animator(ASSET_MANAGER.getAsset("./docs/Tashigi-vertical-right.png"), 18, 0, 94, 70, 5, .1, false);
 
         // upslash
-        this.animations[4][0] = new Animator(ASSET_MANAGER.getAsset("./Tashigi-upslash.png"), 200, 0, 110, 88, 9, .1, false);
+        this.animations[4][0] = new Animator(ASSET_MANAGER.getAsset("./docs/Tashigi-upslash.png"), 200, 0, 110, 88, 9, .1, false);
         //upslash -right
-        this.animations[4][1] = new Animator(ASSET_MANAGER.getAsset("./Tashigi-upslash.png"), 200, 0, 110, 88, 9, .1, true);
+        this.animations[4][1] = new Animator(ASSET_MANAGER.getAsset("./docs/Tashigi-upslash.png"), 200, 0, 110, 88, 9, .1, true);
 
         //speed-slash
-        this.animations[5][0] = new Animator(ASSET_MANAGER.getAsset("./Tashigi-speedslash.png"), 60, 0, 104, 88, 11, .1, false);
+        this.animations[5][0] = new Animator(ASSET_MANAGER.getAsset("./docs/Tashigi-speedslash.png"), 60, 0, 104, 88, 11, .1, false);
         //speed-slash-right
-        this.animations[5][1] = new Animator(ASSET_MANAGER.getAsset("./Tashigi-speedslash.png"), 60, 0, 104, 88, 11, .1, true);
+        this.animations[5][1] = new Animator(ASSET_MANAGER.getAsset("./docs/Tashigi-speedslash.png"), 60, 0, 104, 88, 11, .1, true);
 
         //sheath-strike-right
-        this.animations[6][0] = new Animator(ASSET_MANAGER.getAsset("./Tashigi-sheath-strike.png"), 80, 0, 80, 88, 4, .2, true);
+        this.animations[6][0] = new Animator(ASSET_MANAGER.getAsset("./docs/Tashigi-sheath-strike.png"), 80, 0, 80, 88, 4, .2, true);
         // sheath-strike-right
-        this.animations[6][1] = new Animator(ASSET_MANAGER.getAsset("./Tashigi-sheath-strike.png"), 80, 0, 80, 88, 4, .2, false);
+        this.animations[6][1] = new Animator(ASSET_MANAGER.getAsset("./docs/Tashigi-sheath-strike.png"), 80, 0, 80, 88, 4, .2, false);
 
         //dead animation?
 

@@ -15,7 +15,16 @@ class GameEngine {
         this.click = null;
         this.mouse = null;
         this.wheel = null;
-        this.keys = {}; //tell it what keys I'm looking for?
+        this.keys = {}; //tell it what keys I'm looking for? //keys dynamically assigned?
+
+        this.left = false;
+        this.right = false;
+        this.up = false;
+        this.down = false;
+        this.actionOne = false;
+        this.actionTwo = false;
+        this.actionThree = false;
+        
 
         // THE KILL SWITCH
         this.running = false;
@@ -86,6 +95,42 @@ class GameEngine {
             }
             this.rightclick = getXandY(e);
         });
+
+        var that = this;
+
+        this.ctx.canvas.addEventListener("keydown", function (e) {
+            switch(e.code) {
+                case "KeyA":
+                    that.left = true;
+                    break;
+                case "KeyD":
+                    that.right = true;
+                    break;
+                case "KeyW":
+                    that.up = true;
+                    break;
+                case "KeyS":
+                    that.down = true;
+                    break;
+            }
+        }, false);
+
+        this.ctx.canvas.addEventListener("keyup", function (e) {
+            switch(e.code) {
+                case "KeyA":
+                    that.left = false;
+                    break;
+                case "KeyD":
+                    that.right = false;
+                    break;
+                case "KeyW":
+                    that.up = false;
+                    break;
+                case "KeyS":
+                    that.down = false;
+                    break;
+            }
+        }, false);
 
         //this.ctx.canvas.addEventListener("keydown", function (e))
 
